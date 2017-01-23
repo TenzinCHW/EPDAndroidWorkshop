@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">EPDAndroidWorkshop</string>
+    <string name="connect">CONNECT!</string>
+    <string name="find_devices">Find devices</string>
+    <string name="toggle_bluetooth">Toggle Bluetooth</string>
+    <string name="paired_devices">Paired devices</string>
+    <string name="discover_devices">Discover devices</string>
+</resources>
