@@ -101,8 +101,6 @@ public class MainActivity extends AppCompatActivity {
                             devices) {
                         if (bt.getName().equals(devName)) {
                             connectedThread = new ConnectedThread(bt);
-                            String meow = "1";
-                            connectedThread.write(meow.getBytes());
                             Toast.makeText(MainActivity.this, "MADE CONNECTION", Toast.LENGTH_LONG).show();
                         }
                     }
@@ -178,6 +176,45 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    protected void sendUp(View view) {
+        try {
+            connectedThread.write("0".getBytes());
+        } catch (Exception e) {
+            Toast.makeText(MainActivity.this, "Cannot send", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    protected void sendDown(View view) {
+        try {
+            connectedThread.write("1".getBytes());
+        } catch (Exception e) {
+            Toast.makeText(MainActivity.this, "Cannot send", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    protected void sendLeft(View view) {
+        try {
+            connectedThread.write("LEFT".getBytes());
+        } catch (Exception e) {
+            Toast.makeText(MainActivity.this, "Cannot send", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    protected void sendRight(View view) {
+        try {
+            connectedThread.write("RIGHT".getBytes());
+        } catch (Exception e) {
+            Toast.makeText(MainActivity.this, "Cannot send", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    protected void closeConnection(View view) {
+        try {
+            connectedThread.cancel();
+        } catch (Exception e) {
+            Toast.makeText(MainActivity.this, "No active connection", Toast.LENGTH_SHORT).show();
+        }
+    }
 
     private interface MessageConstants {
         int MESSAGE_READ = 0;
